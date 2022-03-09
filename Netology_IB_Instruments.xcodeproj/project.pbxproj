@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		AC20F57927D8A7DF0014E28C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20F57827D8A7DF0014E28C /* AppDelegate.swift */; };
 		AC20F57B27D8A7DF0014E28C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20F57A27D8A7DF0014E28C /* SceneDelegate.swift */; };
-		AC20F57D27D8A7DF0014E28C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20F57C27D8A7DF0014E28C /* ViewController.swift */; };
-		AC20F58027D8A7DF0014E28C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC20F57E27D8A7DF0014E28C /* Main.storyboard */; };
 		AC20F58227D8A7E00014E28C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC20F58127D8A7E00014E28C /* Assets.xcassets */; };
 		AC20F58527D8A7E00014E28C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC20F58327D8A7E00014E28C /* LaunchScreen.storyboard */; };
+		AC20F58D27D8A8690014E28C /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20F58C27D8A8690014E28C /* Text.swift */; };
+		AC20F58F27D8A8B50014E28C /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC20F58E27D8A8B50014E28C /* ProfileView.xib */; };
+		AC20F59127D8B1730014E28C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20F59027D8B1730014E28C /* ProfileView.swift */; };
+		AC20F59327D8B3320014E28C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC20F59227D8B3320014E28C /* Profile.storyboard */; };
+		AC20F59527D8B48F0014E28C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20F59427D8B48F0014E28C /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC20F57527D8A7DF0014E28C /* B_Instruments'.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "B_Instruments'.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC20F57827D8A7DF0014E28C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC20F57A27D8A7DF0014E28C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC20F57C27D8A7DF0014E28C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AC20F57F27D8A7DF0014E28C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC20F58127D8A7E00014E28C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC20F58427D8A7E00014E28C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC20F58627D8A7E00014E28C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC20F58C27D8A8690014E28C /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		AC20F58E27D8A8B50014E28C /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
+		AC20F59027D8B1730014E28C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AC20F59227D8B3320014E28C /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		AC20F59427D8B48F0014E28C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +63,12 @@
 			isa = PBXGroup;
 			children = (
 				AC20F57827D8A7DF0014E28C /* AppDelegate.swift */,
+				AC20F58C27D8A8690014E28C /* Text.swift */,
+				AC20F59427D8B48F0014E28C /* ProfileViewController.swift */,
+				AC20F58E27D8A8B50014E28C /* ProfileView.xib */,
+				AC20F59227D8B3320014E28C /* Profile.storyboard */,
+				AC20F59027D8B1730014E28C /* ProfileView.swift */,
 				AC20F57A27D8A7DF0014E28C /* SceneDelegate.swift */,
-				AC20F57C27D8A7DF0014E28C /* ViewController.swift */,
-				AC20F57E27D8A7DF0014E28C /* Main.storyboard */,
 				AC20F58127D8A7E00014E28C /* Assets.xcassets */,
 				AC20F58327D8A7E00014E28C /* LaunchScreen.storyboard */,
 				AC20F58627D8A7E00014E28C /* Info.plist */,
@@ -102,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AC20F57027D8A7DF0014E28C /* Build configuration list for PBXProject "B_Instruments'" */;
+			buildConfigurationList = AC20F57027D8A7DF0014E28C /* Build configuration list for PBXProject "Netology_IB_Instruments" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -126,8 +135,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC20F58527D8A7E00014E28C /* LaunchScreen.storyboard in Resources */,
+				AC20F59327D8B3320014E28C /* Profile.storyboard in Resources */,
 				AC20F58227D8A7E00014E28C /* Assets.xcassets in Resources */,
-				AC20F58027D8A7DF0014E28C /* Main.storyboard in Resources */,
+				AC20F58F27D8A8B50014E28C /* ProfileView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC20F57D27D8A7DF0014E28C /* ViewController.swift in Sources */,
+				AC20F59127D8B1730014E28C /* ProfileView.swift in Sources */,
 				AC20F57927D8A7DF0014E28C /* AppDelegate.swift in Sources */,
+				AC20F59527D8B48F0014E28C /* ProfileViewController.swift in Sources */,
+				AC20F58D27D8A8690014E28C /* Text.swift in Sources */,
 				AC20F57B27D8A7DF0014E28C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +159,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AC20F57E27D8A7DF0014E28C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC20F57F27D8A7DF0014E28C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC20F58327D8A7E00014E28C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,7 +297,7 @@
 				INFOPLIST_FILE = "B_Instruments'/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Profile;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +324,7 @@
 				INFOPLIST_FILE = "B_Instruments'/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Profile;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -339,7 +343,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC20F57027D8A7DF0014E28C /* Build configuration list for PBXProject "B_Instruments'" */ = {
+		AC20F57027D8A7DF0014E28C /* Build configuration list for PBXProject "Netology_IB_Instruments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC20F58727D8A7E00014E28C /* Debug */,
