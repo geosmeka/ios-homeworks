@@ -15,10 +15,7 @@ class FeedViewController: ButtonViewController {
         view.backgroundColor = UIColor(red: 249/255, green: 178/255, blue: 209/255, alpha: 1)
         print("Окно загрузилось, цвет настроили")
         
-        buttonTitle = "Show Post"
-        buttonAction = showPost
-        
-        addButton()
+        addButton(buttonTitle: "Show Post", buttonAction: showPost)
     }
     
     

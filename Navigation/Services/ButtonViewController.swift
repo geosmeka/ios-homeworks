@@ -9,10 +9,11 @@ import UIKit
 
 class ButtonViewController : UIViewController {
     
-    var buttonTitle : String = "title"
     var buttonAction : () -> Void = {}
     
-    func addButton () {
+    func addButton (buttonTitle : String, buttonAction : @escaping () -> Void = {}) {
+        
+        self.buttonAction = buttonAction
         
         let button = ButtonBuilder.build(title: buttonTitle)
         

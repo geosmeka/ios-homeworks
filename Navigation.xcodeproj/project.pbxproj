@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC20F59C27D9F86D0014E28C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20F59B27D9F86D0014E28C /* ProfileHeaderView.swift */; };
 		ACCD26BE27CE627100593C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD26BD27CE627100593C06 /* AppDelegate.swift */; };
 		ACCD26C027CE627100593C06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD26BF27CE627100593C06 /* SceneDelegate.swift */; };
 		ACCD26C227CE627100593C06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD26C127CE627100593C06 /* ViewController.swift */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC20F59627D9F7320014E28C /* Homework.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Homework.md; sourceTree = "<group>"; };
+		AC20F59B27D9F86D0014E28C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		ACCD26BA27CE627100593C06 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACCD26BD27CE627100593C06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACCD26BF27CE627100593C06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +56,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC20F59727D9F7B50014E28C /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				ACCD26DC27D0CD3C00593C06 /* Post.swift */,
+				ACCD26D427CF886C00593C06 /* FeedViewController.swift */,
+				ACCD26DA27D0CA0600593C06 /* PostViewController.swift */,
+				ACCD26DE27D0D45000593C06 /* InfoViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		AC20F59827D9F7CD0014E28C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				ACCD26BD27CE627100593C06 /* AppDelegate.swift */,
+				ACCD26BF27CE627100593C06 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		AC20F59927D9F7F60014E28C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ACCD26D227CF806600593C06 /* TabBarBuilder.swift */,
+				ACCD26E027D0DE5A00593C06 /* ButtonViewController.swift */,
+				ACCD26D827CF925900593C06 /* ButtonBuilder.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AC20F59A27D9F8090014E28C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				ACCD26D627CF897900593C06 /* ProfileViewController.swift */,
+				AC20F59B27D9F86D0014E28C /* ProfileHeaderView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		ACCD26B127CE627100593C06 = {
 			isa = PBXGroup;
 			children = (
@@ -72,16 +114,11 @@
 		ACCD26BC27CE627100593C06 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				ACCD26BD27CE627100593C06 /* AppDelegate.swift */,
-				ACCD26DC27D0CD3C00593C06 /* Post.swift */,
-				ACCD26BF27CE627100593C06 /* SceneDelegate.swift */,
-				ACCD26D227CF806600593C06 /* TabBarBuilder.swift */,
-				ACCD26D427CF886C00593C06 /* FeedViewController.swift */,
-				ACCD26E027D0DE5A00593C06 /* ButtonViewController.swift */,
-				ACCD26DA27D0CA0600593C06 /* PostViewController.swift */,
-				ACCD26DE27D0D45000593C06 /* InfoViewController.swift */,
-				ACCD26D827CF925900593C06 /* ButtonBuilder.swift */,
-				ACCD26D627CF897900593C06 /* ProfileViewController.swift */,
+				AC20F59627D9F7320014E28C /* Homework.md */,
+				AC20F59827D9F7CD0014E28C /* Delegate */,
+				AC20F59727D9F7B50014E28C /* Feed */,
+				AC20F59927D9F7F60014E28C /* Services */,
+				AC20F59A27D9F8090014E28C /* Profile */,
 				ACCD26D127CF7C7C00593C06 /* Old */,
 				ACCD26C627CE627300593C06 /* Assets.xcassets */,
 				ACCD26C827CE627300593C06 /* LaunchScreen.storyboard */,
@@ -177,6 +214,7 @@
 				ACCD26DF27D0D45000593C06 /* InfoViewController.swift in Sources */,
 				ACCD26D527CF886C00593C06 /* FeedViewController.swift in Sources */,
 				ACCD26BE27CE627100593C06 /* AppDelegate.swift in Sources */,
+				AC20F59C27D9F86D0014E28C /* ProfileHeaderView.swift in Sources */,
 				ACCD26DD27D0CD3C00593C06 /* Post.swift in Sources */,
 				ACCD26C027CE627100593C06 /* SceneDelegate.swift in Sources */,
 				ACCD26D927CF925900593C06 /* ButtonBuilder.swift in Sources */,

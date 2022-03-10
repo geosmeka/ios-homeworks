@@ -15,11 +15,8 @@ class InfoViewController: ButtonViewController {
         view.backgroundColor = UIColor(red: 135/255, green: 76/255, blue: 115/255, alpha: 1)
         
         print("Info-oкно загрузилось, ещё один цвет настроили")
-      
-        buttonTitle = "Happy End!"
-        buttonAction = showAlert
         
-        addButton()
+        addButton(buttonTitle: "Happy End!", buttonAction: showAlert)
     }
 
     
