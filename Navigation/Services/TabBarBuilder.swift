@@ -21,7 +21,8 @@ class TabBarBuilder {
         profileNavidationController.tabBarItem = profileItem
         
         let feedViewController = FeedViewController ()
-        let profileViewController = ProfileViewController ()
+        let profileViewController = ProfileViewController.getFromNib()
+        
         
         feedNavigationController.pushViewController(feedViewController, animated: true)
         profileNavidationController.pushViewController(profileViewController, animated: true)

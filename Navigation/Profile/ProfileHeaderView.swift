@@ -9,6 +9,56 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
+    @IBOutlet weak var avatarImageView: UIImageView!
+    
+    @IBOutlet weak var fullNameLabel: UILabel!
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    @IBOutlet weak var statusTextField: UITextField!
+    
+    @IBOutlet weak var setStatusButton: UIButton!
+    
+    
+    override func draw(_ rect: CGRect) {
+        
+        avatarImageView.image = UIImage(named: "Voznik2")
+        avatarImageView.contentMode = .scaleAspectFill
+        avatarImageView.layer.cornerRadius = avatarImageView.frame.width/2
+        avatarImageView.layer.masksToBounds = true
+        avatarImageView.layer.borderWidth = 3
+        avatarImageView.layer.borderColor = UIColor.white.cgColor
+        
+        fullNameLabel.text = "Steve Voznik"
+        fullNameLabel.font = .boldSystemFont(ofSize: 18)
+        fullNameLabel.textColor = .black
+       
+        setStatusButton.setTitle("Show status", for: .normal)
+        setStatusButton.tintColor = .white
+        setStatusButton.backgroundColor = .blue
+        
+        setStatusButton.layer.cornerRadius = 4
+        
+        setStatusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
+        setStatusButton.layer.shadowColor = UIColor.black.cgColor
+        setStatusButton.layer.shadowOpacity = 0.7
+        setStatusButton.layer.shadowRadius = 4
+        setStatusButton.addTarget(self, action: #selector(showStatus), for: .touchUpInside)
+            
+        statusLabel.text = "Waiting for something..."
+        statusLabel.font = .systemFont(ofSize: 14)
+        statusLabel.textColor = .gray
+    }
+
+    @objc func showStatus () {
+        print(statusLabel?.text ?? "no status")
+        
+    }
+    
+}
+
+class OldProfileHeaderView: UIView {
+    
     let statusBarHeight : CGFloat = 20
     let contentInset : CGFloat = 16
     let avatarSide : CGFloat = 100
