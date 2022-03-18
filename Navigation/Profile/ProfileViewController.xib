@@ -42,13 +42,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hka-Y3-qMv">
-                                <rect key="frame" x="132" y="27" width="242" height="20.666666666666671"/>
+                                <rect key="frame" x="132" y="27" width="242" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMc-nh-C3Z">
-                                <rect key="frame" x="132" y="56" width="242" height="21"/>
+                                <rect key="frame" x="132" y="56.666666666666679" width="242" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -80,6 +80,29 @@
                             <outlet property="statusTextField" destination="Fcw-Qf-cgi" id="lLY-f7-eeO"/>
                         </connections>
                     </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="z53-Pv-C5h">
+                        <rect key="frame" x="45" y="380" width="300" height="84"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u70-bk-Gfe">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lth-XT-Itk">
+                                <rect key="frame" x="0.0" y="34" width="300" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tK7-9q-nQU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="300" id="WgH-0J-YYb"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="Ayb-Ag-khQ"/>
                 <color key="backgroundColor" systemColor="labelColor"/>
@@ -87,9 +110,11 @@
                     <constraint firstItem="Ayb-Ag-khQ" firstAttribute="trailing" secondItem="Qxa-gD-QRf" secondAttribute="trailing" id="Yru-bs-W8n"/>
                     <constraint firstItem="Qxa-gD-QRf" firstAttribute="leading" secondItem="Ayb-Ag-khQ" secondAttribute="leading" id="e7A-0e-Oxy"/>
                     <constraint firstItem="Qxa-gD-QRf" firstAttribute="top" secondItem="Ayb-Ag-khQ" secondAttribute="top" id="j5Q-on-FSv"/>
+                    <constraint firstItem="z53-Pv-C5h" firstAttribute="centerX" secondItem="Us9-5N-4nJ" secondAttribute="centerX" id="kfJ-2z-XCt"/>
+                    <constraint firstItem="z53-Pv-C5h" firstAttribute="centerY" secondItem="Us9-5N-4nJ" secondAttribute="centerY" id="qb3-ld-5JO"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="-159.42028985507247" y="79.6875"/>
+            <point key="canvasLocation" x="-160" y="79.620853080568722"/>
         </viewController>
     </objects>
     <resources>
@@ -101,6 +126,12 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

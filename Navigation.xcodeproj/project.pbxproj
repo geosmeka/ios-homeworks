@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AC20F59C27D9F86D0014E28C /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20F59B27D9F86D0014E28C /* ProfileHeaderView.swift */; };
+		AC46BEE727E48E2E005E2758 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC46BEE627E48E2E005E2758 /* LogInViewController.swift */; };
+		AC46BEE927E48E89005E2758 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC46BEE827E48E89005E2758 /* LogInView.swift */; };
 		ACBBC20927E0917E0052FEDD /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBBC20827E0917E0052FEDD /* ProfileViewController.xib */; };
 		ACBBC20B27E094570052FEDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBBC20A27E094570052FEDD /* LaunchScreen.storyboard */; };
 		ACCD26BE27CE627100593C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD26BD27CE627100593C06 /* AppDelegate.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		AC20F59627D9F7320014E28C /* Homework.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Homework.md; sourceTree = "<group>"; };
 		AC20F59B27D9F86D0014E28C /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		AC46BEE627E48E2E005E2758 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		AC46BEE827E48E89005E2758 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		ACBBC20827E0917E0052FEDD /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		ACBBC20A27E094570052FEDD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACCD26BA27CE627100593C06 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +98,8 @@
 				ACBBC20827E0917E0052FEDD /* ProfileViewController.xib */,
 				ACCD26D627CF897900593C06 /* ProfileViewController.swift */,
 				AC20F59B27D9F86D0014E28C /* ProfileHeaderView.swift */,
+				AC46BEE627E48E2E005E2758 /* LogInViewController.swift */,
+				AC46BEE827E48E89005E2758 /* LogInView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -217,7 +223,9 @@
 				ACCD26D327CF806600593C06 /* TabBarBuilder.swift in Sources */,
 				ACCD26DF27D0D45000593C06 /* InfoViewController.swift in Sources */,
 				ACCD26D527CF886C00593C06 /* FeedViewController.swift in Sources */,
+				AC46BEE727E48E2E005E2758 /* LogInViewController.swift in Sources */,
 				ACCD26BE27CE627100593C06 /* AppDelegate.swift in Sources */,
+				AC46BEE927E48E89005E2758 /* LogInView.swift in Sources */,
 				AC20F59C27D9F86D0014E28C /* ProfileHeaderView.swift in Sources */,
 				ACCD26DD27D0CD3C00593C06 /* Post.swift in Sources */,
 				ACCD26C027CE627100593C06 /* SceneDelegate.swift in Sources */,
