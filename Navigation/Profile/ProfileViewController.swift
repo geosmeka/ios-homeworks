@@ -30,13 +30,21 @@ class ProfileViewController: UIViewController {
         
         view.addSubview(newButton)
         
-        NSLayoutConstraint(item: newButton, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+        newButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let newButtonTrailingConstraint = newButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        
+        let newButtonLeadingConstraint = newButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+        
+        let newButtonBottomConstraint = newButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        
+        NSLayoutConstraint.activate([newButtonLeadingConstraint, newButtonBottomConstraint, newButtonTrailingConstraint])
+        
+        /*NSLayoutConstraint(item: newButton, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         
         NSLayoutConstraint(item: newButton, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         
-        NSLayoutConstraint(item: newButton, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
-        
-        newButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: newButton, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0).isActive = true*/
     }
     
     override func viewWillLayoutSubviews() {

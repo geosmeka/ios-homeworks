@@ -72,6 +72,15 @@ class OldProfileHeaderView: UIView {
         let avatarView = UIImageView(image: UIImage(named: "Voznik2"))
         addSubview(avatarView)
         
+        let avatarTopConstraint = avatarView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: statusBarHeight + contentInset)
+        
+        let avatarLeadingConstraint = avatarView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: contentInset)
+        
+        let avatarWidthConstraint = avatarView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, constant: avatarSide)
+        
+        let avatarHeightConstraint = avatarView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, constant: avatarSide)
+        
+/*
         NSLayoutConstraint(item: avatarView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: statusBarHeight + contentInset).isActive = true
         
         NSLayoutConstraint(item: avatarView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: contentInset).isActive = true
@@ -79,6 +88,7 @@ class OldProfileHeaderView: UIView {
         NSLayoutConstraint(item: avatarView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: avatarSide).isActive = true
         
         NSLayoutConstraint(item: avatarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: avatarSide).isActive = true
+ */
         
         avatarView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -94,9 +104,16 @@ class OldProfileHeaderView: UIView {
         namelabel.textColor = .black
         addSubview(namelabel)
         
+        let nameLabelTopConstraint = namelabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: nameLabelTopInset + statusBarHeight)
+        
+        let nameLabelLeadingConstraint = namelabel.leadingAnchor.constraint(equalTo: avatarView.leadingAnchor, constant: contentInset)
+        
+        /*
         NSLayoutConstraint(item: namelabel, attribute: .leading, relatedBy: .equal, toItem: avatarView, attribute: .trailing, multiplier: 1, constant: contentInset).isActive = true
         
         NSLayoutConstraint(item: namelabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: nameLabelTopInset + statusBarHeight).isActive = true
+         */
+        
         
         namelabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -116,6 +133,15 @@ class OldProfileHeaderView: UIView {
         
         addSubview(statusButton)
         
+        let statusButtonTopConstraint = statusButton.topAnchor.constraint(equalTo: avatarView.topAnchor, constant: contentInset)
+        
+        let statusButtonLeadingConstraint = statusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: contentInset)
+        
+        let statusButtonCenterXConstraint = statusButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
+        
+        let statusButtonHeightConstraint = statusButton.heightAnchor.constraint(equalToConstant: statusButtonHeight)
+        
+        /*
         NSLayoutConstraint(item: statusButton, attribute: .top, relatedBy: .equal, toItem: avatarView, attribute: .bottom, multiplier: 1, constant: contentInset).isActive = true
         
         NSLayoutConstraint(item: statusButton, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: contentInset).isActive = true
@@ -123,6 +149,7 @@ class OldProfileHeaderView: UIView {
         NSLayoutConstraint(item: statusButton, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         
         NSLayoutConstraint(item: statusButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: statusButtonHeight).isActive = true
+         */
         
         statusButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -132,12 +159,19 @@ class OldProfileHeaderView: UIView {
         statusLabel!.textColor = .gray
         addSubview(statusLabel!)
         
+        let statusLabelLeadingConstraint = statusLabel!.leadingAnchor.constraint(equalTo: avatarView.leadingAnchor, constant: contentInset)
+        
+        let statusLabelBottomConstraint = statusButton.topAnchor.constraint(equalTo: statusLabel!.firstBaselineAnchor, constant: statusButtonInset)
+        
+        /*
         NSLayoutConstraint(item: statusLabel!, attribute: .leading, relatedBy: .equal, toItem: avatarView, attribute: .trailing, multiplier: 1, constant: contentInset).isActive = true
         
         NSLayoutConstraint(item: statusButton, attribute: .top, relatedBy: .equal, toItem: statusLabel!, attribute: .firstBaseline, multiplier: 1, constant: statusButtonInset).isActive = true
+        */
         
         statusLabel!.translatesAutoresizingMaskIntoConstraints = false
         
+        NSLayoutConstraint.activate([avatarTopConstraint, avatarLeadingConstraint, avatarWidthConstraint, avatarHeightConstraint, nameLabelTopConstraint, nameLabelLeadingConstraint, statusButtonTopConstraint, statusButtonLeadingConstraint, statusButtonCenterXConstraint, statusButtonHeightConstraint, statusLabelLeadingConstraint, statusButtonTopConstraint, statusLabelBottomConstraint])
     }
 
     @objc func showStatus () {
