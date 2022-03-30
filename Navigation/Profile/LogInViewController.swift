@@ -19,7 +19,7 @@ class LogInViewController: UIViewController {
         logInView = LogInView ()
         
         logInView?.logIn = {
-            let profileViewController = ProfileViewController.getFromNib()
+            let profileViewController = ProfileViewController()
             self.navigationController?.pushViewController(profileViewController, animated: true)
         }
         

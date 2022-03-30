@@ -22,9 +22,8 @@ class FeedViewController: ButtonViewController {
     @objc func showPost () {
         print ("Кнопка нажата")
         
-        let post = Post(title: "New iPhone 13 Release")
         //let post2 = Post(title: "iPhone 14 Release")
-        
+        guard let post = posts.first else { return }
         let postViewController = PostViewController (post: post)
         navigationController?.pushViewController(postViewController, animated: true)
     }
