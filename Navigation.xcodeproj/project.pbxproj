@@ -29,6 +29,8 @@
 		ACCD26DF27D0D45000593C06 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD26DE27D0D45000593C06 /* InfoViewController.swift */; };
 		ACCD26E127D0DE5A00593C06 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD26E027D0DE5A00593C06 /* ButtonViewController.swift */; };
 		ACF04D9627F46B53008DEDD4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF04D9527F46B53008DEDD4 /* PostTableViewCell.swift */; };
+		ACF04D9827F71622008DEDD4 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF04D9727F71622008DEDD4 /* PhotosViewController.swift */; };
+		ACF04D9A27F71DA7008DEDD4 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF04D9927F71DA7008DEDD4 /* PhotosCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		ACCD26DE27D0D45000593C06 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		ACCD26E027D0DE5A00593C06 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 		ACF04D9527F46B53008DEDD4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		ACF04D9727F71622008DEDD4 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		ACF04D9927F71DA7008DEDD4 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		AC20F59A27D9F8090014E28C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				ACF04D9727F71622008DEDD4 /* PhotosViewController.swift */,
 				ACCD26D627CF897900593C06 /* ProfileViewController.swift */,
 				AC20F59B27D9F86D0014E28C /* ProfileHeaderView.swift */,
 				AC46BEE627E48E2E005E2758 /* LogInViewController.swift */,
@@ -118,6 +123,7 @@
 				AC43AEE827F30BC6007135DE /* PhotosTableViewCell.swift */,
 				ACF04D9527F46B53008DEDD4 /* PostTableViewCell.swift */,
 				AC43AEEA27F323E4007135DE /* ProfileTableViewCell.swift */,
+				ACF04D9927F71DA7008DEDD4 /* PhotosCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -238,6 +244,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC43AEEE27F4651A007135DE /* Posts.swift in Sources */,
+				ACF04D9A27F71DA7008DEDD4 /* PhotosCollectionViewCell.swift in Sources */,
+				ACF04D9827F71622008DEDD4 /* PhotosViewController.swift in Sources */,
 				AC43AEE927F30BC6007135DE /* PhotosTableViewCell.swift in Sources */,
 				ACCD26DB27D0CA0600593C06 /* PostViewController.swift in Sources */,
 				ACCD26D727CF897900593C06 /* ProfileViewController.swift in Sources */,

@@ -25,6 +25,11 @@ class ProfileViewController: UIViewController {
        
     } ()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,31 +98,56 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
      */
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        220
+        section == 0 ? 220 : 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        ProfileHeaderView ()
+        section == 0 ? ProfileHeaderView () : nil
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        730
+        
+        switch indexPath.section {
+        case 0:
+            return PhotosTableViewCell().getHeight()
+        case 1:
+            return 730
+        default:
+            return 0
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        posts.count
+        
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return posts.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        PostTableViewCell (post: posts[indexPath.row])
+        
+        switch indexPath.section {
+        case 0:
+            return PhotosTableViewCell ()
+        case 1:
+            return PostTableViewCell (post: posts[indexPath.row])
+        default:
+            return UITableViewCell ()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(PhotosViewController(), animated: true)
     }
     
 }
