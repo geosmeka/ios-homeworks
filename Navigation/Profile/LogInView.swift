@@ -1,0 +1,186 @@
+//
+//  LogInView.swift
+//  Navigation
+//
+//  Created by Екатерина Смекалова on 18.03.2022.
+//
+
+import UIKit
+
+class LogInView: UIView {
+
+    var scrollView : UIScrollView?
+    var logIn : (() -> Void)?
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        scrollView = UIScrollView ()
+        guard let scrollView = scrollView else {
+            return
+        }
+
+        scrollView.backgroundColor = .purple
+        scrollView.contentSize = frame.size
+        addSubview(scrollView)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let scrollViewCenterXConstraint = scrollView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
+        
+        let scrollViewCenterYConstraint = scrollView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
+        
+        let scrollViewWidthConstraint = scrollView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
+        
+        let scrollViewHeightConstraint = scrollView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor)
+        
+        /*
+        NSLayoutConstraint.init(item: scrollView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item: scrollView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item: scrollView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item: scrollView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0).isActive = true
+        */
+        
+        let contentView = UIView ()
+        contentView.backgroundColor = .systemTeal
+        scrollView.addSubview(contentView)
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let contentViewCenterXConstraint = contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
+        
+        let contentViewCenterYConstraint = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
+        
+        let contentViewWidthConstraint = contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        
+        let contentViewHeightConstraint = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        
+        /*
+        NSLayoutConstraint.init(item: contentView, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item: contentView, attribute: .centerY, relatedBy: .equal, toItem: scrollView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item: contentView, attribute: .width, relatedBy: .equal, toItem: scrollView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item: contentView, attribute: .height, relatedBy: .equal, toItem: scrollView, attribute: .height, multiplier: 1, constant: 0).isActive = true
+        */
+        let logoView = UIImageView(image: UIImage(named: "Logo"))
+        contentView.addSubview(logoView)
+        
+        logoView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let logoViewCenterXConstraint = logoView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        
+        let logoViewTopConstraint = logoView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120)
+        
+        let logoViewWidthConstraint = logoView.widthAnchor.constraint(equalToConstant: 100)
+        
+        let logoViewHeightConstraint = logoView.heightAnchor.constraint(equalToConstant: 100)
+        
+        /*
+        NSLayoutConstraint.init(item: logoView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item:logoView, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 120).isActive = true
+        
+        NSLayoutConstraint.init(item: logoView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100).isActive = true
+        
+        NSLayoutConstraint.init(item: logoView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100).isActive = true
+        */
+        
+        let stackView = UIStackView ()
+        stackView.axis = .vertical
+        
+        let eMailTextField = UITextField ()
+        let passWordTextField = UITextField ()
+        
+        passWordTextField.isSecureTextEntry = true
+        passWordTextField.backgroundColor = .systemGray6
+        eMailTextField.backgroundColor = .systemGray6
+        
+        eMailTextField.placeholder = "Email or phone"
+        passWordTextField.placeholder = "Password"
+        
+        eMailTextField.font = .systemFont(ofSize: 16)
+        passWordTextField.font = .systemFont(ofSize: 16)
+        
+        eMailTextField.textColor = UIColor.init(named: "AccentColor")
+        passWordTextField.textColor = UIColor.init(named: "AccentColor")
+        
+        eMailTextField.autocapitalizationType = .none
+        passWordTextField.autocapitalizationType = .none
+        
+        stackView.addArrangedSubview(eMailTextField)
+        stackView.addArrangedSubview(passWordTextField)
+        
+        stackView.layer.cornerRadius = 10
+        stackView.layer.masksToBounds = true
+        
+        stackView.layer.borderColor = UIColor.lightGray.cgColor
+        stackView.layer.borderWidth = 0.5
+        contentView.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let eMailTextFieldHeightConstraint = eMailTextField.heightAnchor.constraint(equalToConstant: 50)
+        
+        let passWordTextFieldHeightConstraint = passWordTextField.heightAnchor.constraint(equalToConstant: 50)
+        
+        let stackViewTopConstraint = stackView.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 120)
+        
+        let stackViewCenterXConstraint = stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        
+        let stackViewLeadingConstraint = stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+        
+        /*
+        NSLayoutConstraint.init(item: eMailTextField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50).isActive = true
+        
+        NSLayoutConstraint.init(item: passWordTextField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50).isActive = true
+        */
+        /*
+        NSLayoutConstraint.init(item: stackView, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item: stackView, attribute: .top, relatedBy: .equal, toItem: logoView, attribute: .bottom, multiplier: 1, constant: 120).isActive = true
+        
+        NSLayoutConstraint.init(item: stackView, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1, constant: 16).isActive = true
+        */
+        let loginButton = UIButton ()
+        loginButton.setTitle("Log in", for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.setBackgroundImage(UIImage.init(named: "BUTTON"), for: .normal)
+        loginButton.layer.cornerRadius = 10
+        loginButton.layer.masksToBounds = true
+        
+        contentView.addSubview(loginButton)
+        
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let loginButtonLeadingConstraint = loginButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16)
+        
+        let loginButtonHeightConstraint = loginButton.heightAnchor.constraint(equalToConstant: 50)
+        
+        let loginButtonCenterXConstraint = loginButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        
+        let loginButtonTopConstraint = loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16)
+        
+        NSLayoutConstraint.activate([scrollViewCenterXConstraint, scrollViewCenterYConstraint, scrollViewWidthConstraint, scrollViewHeightConstraint, contentViewCenterXConstraint, contentViewCenterYConstraint, contentViewWidthConstraint, contentViewHeightConstraint, logoViewCenterXConstraint, logoViewTopConstraint, logoViewWidthConstraint, logoViewHeightConstraint, eMailTextFieldHeightConstraint, passWordTextFieldHeightConstraint, stackViewTopConstraint, stackViewCenterXConstraint, stackViewLeadingConstraint, loginButtonLeadingConstraint, loginButtonHeightConstraint, loginButtonCenterXConstraint, loginButtonTopConstraint])
+        /*
+        NSLayoutConstraint.init(item: loginButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50).isActive = true
+
+        NSLayoutConstraint.init(item: loginButton, attribute: .centerX, relatedBy: .equal, toItem: contentView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint.init(item: loginButton, attribute: .top, relatedBy: .equal, toItem: stackView, attribute: .bottom, multiplier: 1, constant: 16).isActive = true
+        
+        NSLayoutConstraint.init(item: loginButton, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1, constant: 16).isActive = true
+        */
+        loginButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+    }
+
+    @objc func buttonPressed () {
+        print(#function)
+        logIn?()
+    }
+
+}
