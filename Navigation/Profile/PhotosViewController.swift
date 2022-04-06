@@ -36,7 +36,7 @@ class PhotosViewController: UIViewController {
         
         view.addSubview(collectionView)
         
-        let collectionViewHeightConstraint = collectionView.heightAnchor.constraint(equalToConstant: 1000)
+        let collectionViewHeightConstraint = collectionView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor)
         let collectionViewCenterXConstraint = collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         let collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         let collectionViewLeadingConstraint = collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
@@ -49,11 +49,11 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        6
+        1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
