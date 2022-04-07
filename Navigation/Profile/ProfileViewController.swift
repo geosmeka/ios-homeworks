@@ -102,7 +102,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        section == 0 ? ProfileHeaderView () : nil
+        
+        let profileHeaderView = ProfileHeaderView(superview: view)
+        profileHeaderView.delegate = self
+        
+        return section == 0 ? profileHeaderView : nil
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -150,4 +154,17 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(PhotosViewController(), animated: true)
     }
     
+}
+
+extension ProfileViewController : ProfileHeaderViewDelegate {
+    
+    func avatarExpanded() {
+        //tableView.isUserInteractionEnabled = false
+        //navigationController?.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func avatarShrinked() {
+        //tableView.isUserInteractionEnabled = true
+        //navigationController?.tabBarController?.tabBar.isHidden = false
+    }
 }

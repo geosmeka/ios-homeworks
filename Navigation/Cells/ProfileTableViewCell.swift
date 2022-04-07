@@ -25,7 +25,7 @@ class ProfileTableViewCell: UITableViewCell {
     init() {
         super.init(style: .default, reuseIdentifier: identifier)
         
-        let profileHeaderView = ProfileHeaderView(frame: .zero)
+        let profileHeaderView = ProfileHeaderView(superview: contentView)
         profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(profileHeaderView)
         
