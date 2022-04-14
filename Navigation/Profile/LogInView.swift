@@ -8,9 +8,52 @@
 import UIKit
 
 class LogInView: UIView {
+    
+    let trueLogin = "geosmeka"
+    let truePassword = "netology"
 
     var scrollView : UIScrollView?
     var logIn : (() -> Void)?
+    var errorAlert : (() -> Void)?
+    
+    let passwordLimit = 8
+    var errorLabelHeightConstraint : NSLayoutConstraint?
+    
+    lazy var separator : UIView = {
+        return UIView ()
+    }()
+    
+    lazy var passwordErrorLabel : UILabel = {
+        let errorLabel = UILabel ()
+        errorLabel.text = "Password should be more than or \(passwordLimit) symbols!"
+        errorLabel.font = .systemFont(ofSize: 14)
+        errorLabel.textColor = .red
+        errorLabel.textAlignment = .center
+        errorLabel.isHidden = true
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        return errorLabel
+    }()
+    
+    lazy var eMailTextField : UITextField = {
+        let eMailTextField = UITextField ()
+        eMailTextField.backgroundColor = .systemGray6
+        eMailTextField.placeholder = "Email or phone"
+        eMailTextField.font = .systemFont(ofSize: 16)
+        eMailTextField.textColor = UIColor.init(named: "AccentColor")
+        eMailTextField.autocapitalizationType = .none
+        return eMailTextField
+    }()
+    
+    lazy var passWordTextField : UITextField = {
+        let passWordTextField = UITextField ()
+        passWordTextField.isSecureTextEntry = true
+        passWordTextField.backgroundColor = .systemGray6
+        passWordTextField.placeholder = "Password"
+        passWordTextField.font = .systemFont(ofSize: 16)
+        passWordTextField.textColor = UIColor.init(named: "AccentColor")
+        passWordTextField.autocapitalizationType = .none
+        return passWordTextField
+    }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -93,26 +136,8 @@ class LogInView: UIView {
         let stackView = UIStackView ()
         stackView.axis = .vertical
         
-        let eMailTextField = UITextField ()
-        let passWordTextField = UITextField ()
-        
-        passWordTextField.isSecureTextEntry = true
-        passWordTextField.backgroundColor = .systemGray6
-        eMailTextField.backgroundColor = .systemGray6
-        
-        eMailTextField.placeholder = "Email or phone"
-        passWordTextField.placeholder = "Password"
-        
-        eMailTextField.font = .systemFont(ofSize: 16)
-        passWordTextField.font = .systemFont(ofSize: 16)
-        
-        eMailTextField.textColor = UIColor.init(named: "AccentColor")
-        passWordTextField.textColor = UIColor.init(named: "AccentColor")
-        
-        eMailTextField.autocapitalizationType = .none
-        passWordTextField.autocapitalizationType = .none
-        
         stackView.addArrangedSubview(eMailTextField)
+        stackView.addArrangedSubview(separator)
         stackView.addArrangedSubview(passWordTextField)
         
         stackView.layer.cornerRadius = 10
@@ -125,6 +150,8 @@ class LogInView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         let eMailTextFieldHeightConstraint = eMailTextField.heightAnchor.constraint(equalToConstant: 50)
+        
+        let separatorHeightConstraint = separator.heightAnchor.constraint(equalToConstant: 2)
         
         let passWordTextFieldHeightConstraint = passWordTextField.heightAnchor.constraint(equalToConstant: 50)
         
@@ -146,6 +173,8 @@ class LogInView: UIView {
         
         NSLayoutConstraint.init(item: stackView, attribute: .leading, relatedBy: .equal, toItem: contentView, attribute: .leading, multiplier: 1, constant: 16).isActive = true
         */
+
+        
         let loginButton = UIButton ()
         loginButton.setTitle("Log in", for: .normal)
         loginButton.setTitleColor(.white, for: .normal)
@@ -163,9 +192,13 @@ class LogInView: UIView {
         
         let loginButtonCenterXConstraint = loginButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         
-        let loginButtonTopConstraint = loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 16)
+        contentView.addSubview(passwordErrorLabel)
         
-        NSLayoutConstraint.activate([scrollViewCenterXConstraint, scrollViewCenterYConstraint, scrollViewWidthConstraint, scrollViewHeightConstraint, contentViewCenterXConstraint, contentViewCenterYConstraint, contentViewWidthConstraint, contentViewHeightConstraint, logoViewCenterXConstraint, logoViewTopConstraint, logoViewWidthConstraint, logoViewHeightConstraint, eMailTextFieldHeightConstraint, passWordTextFieldHeightConstraint, stackViewTopConstraint, stackViewCenterXConstraint, stackViewLeadingConstraint, loginButtonLeadingConstraint, loginButtonHeightConstraint, loginButtonCenterXConstraint, loginButtonTopConstraint])
+        let errorLabelTopConstraint = passwordErrorLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor)
+        let errorLabelBottomConstraint = passwordErrorLabel.bottomAnchor.constraint(equalTo: loginButton.topAnchor)
+        errorLabelHeightConstraint = passwordErrorLabel.heightAnchor.constraint(equalToConstant: 16)
+        
+        NSLayoutConstraint.activate([scrollViewCenterXConstraint, scrollViewCenterYConstraint, scrollViewWidthConstraint, scrollViewHeightConstraint, contentViewCenterXConstraint, contentViewCenterYConstraint, contentViewWidthConstraint, contentViewHeightConstraint, logoViewCenterXConstraint, logoViewTopConstraint, logoViewWidthConstraint, logoViewHeightConstraint, eMailTextFieldHeightConstraint, passWordTextFieldHeightConstraint, stackViewTopConstraint, stackViewCenterXConstraint, stackViewLeadingConstraint, loginButtonLeadingConstraint, loginButtonHeightConstraint, loginButtonCenterXConstraint, separatorHeightConstraint, errorLabelTopConstraint, errorLabelBottomConstraint, errorLabelHeightConstraint].compactMap({ $0 })) //метод оставляет не nil, развертыват опциналы
         /*
         NSLayoutConstraint.init(item: loginButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50).isActive = true
 
@@ -179,8 +212,39 @@ class LogInView: UIView {
     }
 
     @objc func buttonPressed () {
-        print(#function)
-        logIn?()
+        
+        eMailTextField.layer.borderColor = UIColor.clear.cgColor
+        passWordTextField.layer.borderColor = UIColor.clear.cgColor
+        
+        eMailTextField.layer.borderWidth = 0
+        passWordTextField.layer.borderWidth = 0
+        passwordErrorLabel.isHidden = true
+        errorLabelHeightConstraint?.constant = 16
+        
+        guard let email = eMailTextField.text, let password = passWordTextField.text else { return }
+        
+        if email.count == 0 {
+            eMailTextField.layer.borderColor = UIColor.red.cgColor
+            eMailTextField.layer.borderWidth = 2
+        }
+        
+        if password.count == 0 {
+            passWordTextField.layer.borderColor = UIColor.red.cgColor
+            passWordTextField.layer.borderWidth = 2
+        }
+        
+        if password.count < passwordLimit {
+            passwordErrorLabel.isHidden = false
+            errorLabelHeightConstraint?.constant = 32
+        }
+        
+        if email.count > 0 && password.count >= passwordLimit {
+            if email == trueLogin && password == truePassword {
+                logIn?()
+            } else {
+                errorAlert?()
+            }
+        }
     }
 
 }

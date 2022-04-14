@@ -23,6 +23,15 @@ class LogInViewController: UIViewController {
             self.navigationController?.pushViewController(profileViewController, animated: true)
         }
         
+        logInView?.errorAlert = {
+            let alertController = UIAlertController(title: "Login error!", message: "Incorrect login and/or password!", preferredStyle: .actionSheet)
+            
+            let alertOkAction = UIAlertAction(title: "Ok", style: .cancel)
+            alertController.addAction(alertOkAction)
+            
+            self.present(alertController, animated: true)
+        }
+        
         guard let logInView = logInView else {
             return
         }

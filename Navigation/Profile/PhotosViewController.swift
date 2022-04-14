@@ -32,7 +32,7 @@ class PhotosViewController: UIViewController {
         view.backgroundColor = .systemTeal
      
         navigationController?.navigationBar.isHidden = false
-        title = "Photos Gallery"
+        title = "Фото-альбом"
         
         view.addSubview(collectionView)
         

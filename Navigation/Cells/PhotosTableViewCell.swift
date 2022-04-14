@@ -23,7 +23,7 @@ class PhotosTableViewCell: UITableViewCell {
     
     lazy var titleLabel : UILabel = {
         let label = UILabel()
-        label.text = "Photos"
+        label.text = "Фото"
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 24)
         label.translatesAutoresizingMaskIntoConstraints = false

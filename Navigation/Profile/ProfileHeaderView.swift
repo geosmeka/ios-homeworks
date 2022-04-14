@@ -21,10 +21,33 @@ class ProfileHeaderView: UIView {
     let avatarSide : CGFloat = 100
     let nameLabelTopInset : CGFloat = 27
     let statusButtonHeight : CGFloat = 50
-    let statusButtonInset : CGFloat = 34
-    var statusLabel : UILabel?
+    let statusButtonInset : CGFloat = 55 //34
+    private var statusText = ""
     
     var isExpanded = false
+    
+    var statusLabel : UILabel = {
+        let statusLabel = UILabel ()
+        statusLabel.text = "Waiting for something..."
+        statusLabel.font = .systemFont(ofSize: 14)
+        statusLabel.textColor = .gray
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        return statusLabel
+    }()
+    
+    lazy var statusTextField : UITextField = {
+        let statusTextField = UITextField()
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        statusTextField.layer.cornerRadius = 12
+        statusTextField.font = .systemFont(ofSize: 15)
+        statusTextField.textColor = .black
+        statusTextField.placeholder = "Type status"
+        statusTextField.backgroundColor = .white
+        statusTextField.layer.borderWidth = 1
+        statusTextField.layer.borderColor = UIColor.black.cgColor
+        statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        return statusTextField
+    }()
     
     lazy var avatarView: UIImageView = {
         let avatarView = UIImageView(image: UIImage(named: "Voznik2"))
@@ -97,7 +120,7 @@ class ProfileHeaderView: UIView {
          */
         
         let statusButton = UIButton ()
-        statusButton.setTitle("Show status", for: .normal)
+        statusButton.setTitle("Set status", for: .normal)
         statusButton.tintColor = .white
         statusButton.backgroundColor = .blue
         
@@ -108,7 +131,7 @@ class ProfileHeaderView: UIView {
         statusButton.layer.shadowColor = UIColor.black.cgColor
         statusButton.layer.shadowOpacity = 0.7
         statusButton.layer.shadowRadius = 4
-        statusButton.addTarget(self, action: #selector(showStatus), for: .touchUpInside)
+        statusButton.addTarget(self, action: #selector(setStatus), for: .touchUpInside)
         statusButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(statusButton)
         
@@ -130,22 +153,25 @@ class ProfileHeaderView: UIView {
         let statusButtonHeightConstraint = NSLayoutConstraint(item: statusButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: statusButtonHeight)*/
          
         
-        statusLabel = UILabel ()
-        statusLabel!.text = "Waiting for something..."
-        statusLabel!.font = .systemFont(ofSize: 14)
-        statusLabel!.textColor = .gray
-        statusLabel!.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(statusLabel!)
+        addSubview(statusLabel)
 
-        let statusLabelLeadingConstraint = statusLabel!.leadingAnchor.constraint(equalTo: namelabel.leadingAnchor)
+        let statusLabelLeadingConstraint = statusLabel.leadingAnchor.constraint(equalTo: namelabel.leadingAnchor)
 
-        let statusLabelBottomConstraint = statusLabel!.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -statusButtonInset)
+        let statusLabelBottomConstraint = statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -statusButtonInset)
         
         /*
         NSLayoutConstraint(item: statusLabel!, attribute: .leading, relatedBy: .equal, toItem: avatarView, attribute: .trailing, multiplier: 1, constant: contentInset).isActive = true
         
         NSLayoutConstraint(item: statusButton, attribute: .top, relatedBy: .equal, toItem: statusLabel!, attribute: .firstBaseline, multiplier: 1, constant: statusButtonInset).isActive = true
         */
+        
+        addSubview(statusTextField)
+        
+        let statusTextFieldBottomConstrainst = statusTextField.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -10)
+        let statusTextFieldLeadingConstrainst = statusTextField.leadingAnchor.constraint(equalTo: namelabel.leadingAnchor)
+        let statusTextFieldHeightConstrainst = statusTextField.heightAnchor.constraint(equalToConstant: 40)
+        let statusTextFieldTrailingConstrainst = statusTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -contentInset)
+        let statusTextFieldConstrainsts = [statusTextFieldBottomConstrainst, statusTextFieldLeadingConstrainst, statusTextFieldHeightConstrainst, statusTextFieldTrailingConstrainst]
         
         let backViewTopConstraint = backView.topAnchor.constraint(equalTo: topAnchor)
         let backViewLeadingConstraint = backView.leadingAnchor.constraint(equalTo: leadingAnchor)
@@ -162,7 +188,7 @@ class ProfileHeaderView: UIView {
         
         addSubview(avatarView)
         
-        NSLayoutConstraint.activate([avatarTopConstraint, avatarLeadingConstraint, avatarWidthConstraint, avatarHeightConstraint, nameLabelTopConstraint, nameLabelLeadingConstraint, statusButtonTopConstraint, statusButtonLeadingConstraint, statusButtonCenterXConstraint, statusButtonHeightConstraint, statusButtonTopConstraint, statusLabelLeadingConstraint, statusLabelBottomConstraint] + backViewConstraints + closeButtonConstraints)
+        NSLayoutConstraint.activate([avatarTopConstraint, avatarLeadingConstraint, avatarWidthConstraint, avatarHeightConstraint, nameLabelTopConstraint, nameLabelLeadingConstraint, statusButtonTopConstraint, statusButtonLeadingConstraint, statusButtonCenterXConstraint, statusButtonHeightConstraint, statusButtonTopConstraint, statusLabelLeadingConstraint, statusLabelBottomConstraint] + backViewConstraints + closeButtonConstraints + statusTextFieldConstrainsts)
     }
     
     required init?(coder: NSCoder) {
@@ -216,9 +242,20 @@ class ProfileHeaderView: UIView {
         isExpanded = false
     }
     
-    @objc func showStatus () {
-        print(statusLabel?.text ?? "no status")
+    @objc func setStatus () {
         
+        statusTextField.layer.borderColor = UIColor.black.cgColor
+        
+        if statusText.count > 0 {
+            statusLabel.text = statusText
+            statusTextField.text = ""
+        } else {
+            statusTextField.layer.borderColor = UIColor.red.cgColor
+        }
+    }
+    
+    @objc func statusTextChanged () {
+        statusText = statusTextField.text ?? ""
     }
     
 }

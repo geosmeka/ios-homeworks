@@ -23,14 +23,29 @@ class PostTableViewCell: UITableViewCell {
         return label
     } ()
     
-    lazy var likesLabel : UILabel = {
+    lazy var likesButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("\(post.likes) ❤️", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        let font = NSAttributedString(string: "\(post.likes) ❤️", attributes: [.font : UIFont.systemFont(ofSize: 16)])
+        button.isEnabled = true
+        button.isUserInteractionEnabled = true
+        //button.backgroundColor = .blue
+        button.setAttributedTitle(font, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(likesButtonTapped), for: .touchUpInside)
+        return button
+    } ()
+    
+    /*lazy var likesLabel : UILabel = {
         let label = UILabel()
         label.text = "\(post.likes) ❤️"
         label.textColor = .black
         label.font = .systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(likesLabelTapped)))
         return label
-    } ()
+    } ()*/
     
     lazy var viewsLabel : UILabel = {
         let label = UILabel()
@@ -47,6 +62,7 @@ class PostTableViewCell: UITableViewCell {
         imageView.backgroundColor = .black
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageViewTapped)))
         return imageView
     } ()
     
@@ -85,10 +101,10 @@ class PostTableViewCell: UITableViewCell {
         let textViewHeightConstraint = textView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
         let textViewWidthConstraint = textView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor)
         
-        addSubview(likesLabel)
+        addSubview(likesButton)
         
-        let likesLabelLeadingConstraint = likesLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
-        let likesLabelTopConstraint = likesLabel.topAnchor.constraint(equalTo: textView.bottomAnchor)
+        let likesLabelLeadingConstraint = likesButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
+        let likesLabelTopConstraint = likesButton.topAnchor.constraint(equalTo: textView.bottomAnchor)
   
         addSubview(viewsLabel)
         
@@ -103,5 +119,13 @@ class PostTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    @objc func likesButtonTapped () {
+        print(#function)
+    }
+    
+    @objc func imageViewTapped () {
+        print(#function)
+    }
 }
+
