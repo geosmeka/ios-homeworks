@@ -237,7 +237,7 @@ class LogInView: UIView {
             passwordErrorLabel.isHidden = false
             errorLabelHeightConstraint?.constant = 32
         }
-        
+        logIn?()
         if email.count > 0 && password.count >= passwordLimit {
             if email == trueLogin && password == truePassword {
                 logIn?()

@@ -22,7 +22,6 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
-       
     } ()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,7 +142,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return PhotosTableViewCell ()
         case 1:
-            return PostTableViewCell (post: posts[indexPath.row])
+            let postCell = PostTableViewCell (post: posts[indexPath.row])
+            postCell.delegate = self
+            return postCell
         default:
             return UITableViewCell ()
         }
@@ -168,5 +169,12 @@ extension ProfileViewController : ProfileHeaderViewDelegate {
     func avatarShrinked() {
         //tableView.isUserInteractionEnabled = true
         //navigationController?.tabBarController?.tabBar.isHidden = false
+    }
+}
+
+extension ProfileViewController : PostTableViewCellDelegate {
+    
+    func showSinglePost(_ post: Post) {
+        present(SinglePostViewController(post: post), animated: true)
     }
 }
