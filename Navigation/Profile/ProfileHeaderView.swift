@@ -94,14 +94,6 @@ class ProfileHeaderView: UIView {
         NSLayoutConstraint(item: avatarView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: avatarSide).isActive = true
  */
         
-        avatarView.contentMode = .scaleAspectFill
-        avatarView.layer.cornerRadius = avatarSide/2
-        avatarView.layer.masksToBounds = true
-        avatarView.layer.borderWidth = 3
-        avatarView.layer.borderColor = UIColor.white.cgColor
-        avatarView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(avatarViewTapped)))
-        avatarView.isUserInteractionEnabled = true
-        
         let namelabel = UILabel ()
         namelabel.text = "Steve Voznik"
         namelabel.font = .boldSystemFont(ofSize: 18)

@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol PhotosCollectionViewCellDelegate : AnyObject {
+    func expandPhoto (_ indexPath :IndexPath, photo : UIImage)
+}
+
 class PhotosCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "PhotosCollectionViewCell"
+    weak var delegate : PhotosCollectionViewCellDelegate?
+    var indexPath : IndexPath?
     
     var image: UIImage? {
         didSet {
@@ -20,7 +26,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(photoViewTapped)))
+        imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = 6
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,5 +51,8 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    @objc func photoViewTapped () {
+        guard let indexPath = indexPath, let photo = photoImageView.image else { return }
+        delegate?.expandPhoto(indexPath, photo: photo)
+    }
 }

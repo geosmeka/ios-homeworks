@@ -136,15 +136,17 @@ class PostTableViewCell: UITableViewCell {
         
         let likesLabelLeadingConstraint = likesLabel.leadingAnchor.constraint(equalTo: backView.leadingAnchor)
         let likesLabelTopConstraint = likesLabel.topAnchor.constraint(equalTo: textView.bottomAnchor)
+        let likesLabelHeightConstraint = likesLabel.heightAnchor.constraint(equalToConstant: 30)
+        
   
         backView.addSubview(viewsLabel)
         
         let viewsLabelTrailingConstraint = viewsLabel.trailingAnchor.constraint(equalTo: backView.trailingAnchor)
         let viewsLabelTopConstraint = viewsLabel.topAnchor.constraint(equalTo: textView.bottomAnchor)
-  
+        let viewsLabelHeightConstraint = viewsLabel.heightAnchor.constraint(equalToConstant: 30)
         
         
-        NSLayoutConstraint.activate([titleLabelTrailingConstraint, titleLabelLeadingConstraint, titleLabelTopConstraint, titleLabelHeightConstraint, postImageViewTrailingConstraint,  postImageViewTopConstraint, postImageViewHeightConstraint, postImageViewWidthConstraint, textViewTrailingConstraint, textViewTopConstraint, textViewHeightConstraint, textViewWidthConstraint, likesLabelLeadingConstraint, likesLabelTopConstraint, viewsLabelTrailingConstraint, viewsLabelTopConstraint] + backViewConstrainsts)
+        NSLayoutConstraint.activate([likesLabelHeightConstraint, viewsLabelHeightConstraint, titleLabelTrailingConstraint, titleLabelLeadingConstraint, titleLabelTopConstraint, titleLabelHeightConstraint, postImageViewTrailingConstraint,  postImageViewTopConstraint, postImageViewHeightConstraint, postImageViewWidthConstraint, textViewTrailingConstraint, textViewTopConstraint, textViewHeightConstraint, textViewWidthConstraint, likesLabelLeadingConstraint, likesLabelTopConstraint, viewsLabelTrailingConstraint, viewsLabelTopConstraint] + backViewConstrainsts)
     }
     
     required init?(coder: NSCoder) {

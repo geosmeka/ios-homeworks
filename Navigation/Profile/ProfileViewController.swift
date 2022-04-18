@@ -114,7 +114,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return PhotosTableViewCell().getHeight()
         case 1:
-            return 730
+            return UIScreen.main.bounds.width * 2 + 80
         default:
             return 0
         }
@@ -164,11 +164,13 @@ extension ProfileViewController : ProfileHeaderViewDelegate {
     func avatarExpanded() {
         //tableView.isUserInteractionEnabled = false
         //navigationController?.tabBarController?.tabBar.isHidden = true
+        tableView.isScrollEnabled = false
     }
     
     func avatarShrinked() {
         //tableView.isUserInteractionEnabled = true
         //navigationController?.tabBarController?.tabBar.isHidden = false
+        tableView.isScrollEnabled = true
     }
 }
 

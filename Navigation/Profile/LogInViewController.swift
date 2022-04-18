@@ -14,6 +14,7 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .systemTeal
         navigationController?.navigationBar.isHidden = true
         
         logInView = LogInView ()
